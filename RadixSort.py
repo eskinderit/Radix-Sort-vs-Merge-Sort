@@ -62,7 +62,7 @@ def CountingSortRadix(A, B, AIstr, max): #(S,D,B,max()) AIstr e' una matrice
 prova = [31274758, 31274757, 21047829, 78123209, 21979403]
 
 #TODO domanda al prof:
-# 1. Posso variare il passo, ma come lo studio analiticamnente senza i bit?
+# 1. Posso variare il passo, ma come lo studio analiticamnente senza i bit? devo considerasre che python usa 24 bit per intero
 # 2. Devo studiare l'occupazione di memoria? e se si, come?
 # 3. Vario il passo e faccio un confronto di quello o anche con altri algoritmi di ordinamento?
 #TODO prima cifra non puo essere uno zero
@@ -101,3 +101,4 @@ def RadixSort(A,p):
     print("Ordine finale: ",B)
 RadixSort(prova, 2)
 
+print(bin(5))
