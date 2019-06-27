@@ -20,23 +20,56 @@ def CountingSort(A, B, max):
           C[A[j]] = C[A[j]] - 1
     return B
 
-print(CountingSort(a,b,m))
+#CountingSort moddato per Radix, AI e' l'array intero
+def CountingSortRadix(A, B, AI, max):
+    C=[]
+    C=[0]*(max+1)
+    for j in range(0, len(A)):
+        C[A[j]]=C[A[j]]+1
+    # Ho registrato il numero di copie che ho di ogni numero
+    for i in range(1, max+1):
+        C[i]=C[i]+C[i-1]
+    #C[i] contiene tutti i numeri <= i
+    for j in range(len(A)-1, -1, -1):
+          B[C[A[j]]-1] = A[j]
+          C[A[j]] = C[A[j]] - 1
+    return B
 
-a=127
-print((a//10)%10)
+
+
+prova = [31274758, 43269326, 21047829, 78123209, 21979403]
 
 #TODO domanda al prof: quindi uso sempre 24 bytes?
+#converto a in binario
 
-a=139709808099
+
+
 def RadixSort(A,p):
-    if A%p == 0:
-      r=len(A)/p
-    else:
-      r=round((len(A)/p)+1)
-    #ho appena definito il numero di volte che il ciclo verra ripetuto
 
-    for i in range(1,r):
-        #TODO prendo i*p numeri
-        #TODO ciclare sui numeri
-        #TODO fare funzione per prendere l'iesima cifra
-        a=10
+    B=[]
+    D = [] #array ordinato ad ogni passo reso dalla routine di counting sort
+    C = [0]*len(A)
+    for i in range(0, len(A)):
+        B.append(str(A[i]))
+
+    if len(B[1]) % p == 0:
+      r = int(len(B[1])/p)
+
+    else:
+      # numero di volte che il ciclo verra ripetuto
+      r = int(round((len(B[1])/p)+1))
+    print("Totale passaggi:", r)
+    print("Numeri da ordinare", B)
+    #per ogni cifra ora creo le colonne parziali
+    S=[]
+    for k in range (0, r):
+        S=[]
+        for j in range(0, len(B)):
+            S.append(B[j][(len(B[1])-p-k*p):(len(B[1])-k*p)])
+            #TODO modificare e chiamare in modi corretto CountingSortRadix
+            # CountingSortRadix()
+
+        print("s e' :", S)
+        #CountingSortRadix(S,B,D,max(S))
+
+RadixSort(prova,2)
