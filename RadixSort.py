@@ -3,6 +3,7 @@ import math
 from timeit import default_timer as timer
 import numpy as np
 import matplotlib.pyplot as plt
+import pickle
 
 # Dati test
 
@@ -16,10 +17,10 @@ def Binarize(array):
    array[i] = int(bin(array[i])[2:])
  return array
 
+
 # genera vettore random di B numeri a bit bit
 def random_vect(B,bit):
     A=[]
-    random.seed(2)
     for i in range(B):
       A.append(random.randint(0, 2**bit))
     return A
@@ -87,7 +88,7 @@ def CountingSortRadix(A, B, AIstr, max): #(S,D,B,max()) AIstr e' una matrice
           B[(C[(A[j])])-1] = A[j]
           AI[(C[(A[j])])-1] = AIstr[j]
           C[(A[j])] = C[(A[j])] - 1
-    print("Ordine parziale: ",AI,"\n")
+    #print("Ordine parziale: ",AI,"\n")
 
     return AI
 
@@ -114,8 +115,8 @@ def RadixSort(A,p,numberLen):
     else:
       # numero di volte che il ciclo verra ripetuto
       r = int(round((numberLen/p)+1))
-    print("Totale passaggi:", r)
-    print("Numeri da ordinare", B,"\n")
+    print("############# INIZIO RADIX ################## Totale passaggi:", r)
+  ##  print("Numeri da ordinare", B,"\n")
     #per ogni cifra ora creo le colonne parziali, k per r passi di dimensione p
     S=[]
     start = timer()
@@ -132,19 +133,16 @@ def RadixSort(A,p,numberLen):
         B = CountingSortRadix(S, D, B, int(max(S)))
     end = timer()
     print("Timer:",end-start)
-    print("Ordine finale: ",B)
-
-ok = random_vect(10,10)
-#ok1 = Binarize(ok)
-print(ok)
-
-RadixSort(ok, 2, 4)
+  #  print("Ordine finale: ",B)
 
 
-#lista_binaria = list(map(bin,prova2))
-#print(prova)
-#print(lista_binaria)
-#print(lista_binaria[0] + lista_binaria[1])
-#A=[32, 432]
-#print(NumberToStringVectBin(A,4))
+############################# ESECUZIONE #######################
+#
+# for j in range(0,2):
+#  ok = random_vect(10, 10)
+#  RadixSort(ok, 2, 4)
 
+Set=[]
+pickle_in = open("randomBigDataset.pickle", "rb")
+Set = pickle.load(pickle_in)
+RadixSort(Set[3], 4, 4)
