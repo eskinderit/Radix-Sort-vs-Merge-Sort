@@ -3,9 +3,10 @@ import math
 import pickle
 
 def random_boolean_num(bits):
-    A=[]
-    for j in range(0,bits+1):
-        A.append(random.getrandbits(1))
+    A = str()
+    for j in range(0,bits):
+        A = A+(str(random.getrandbits(1)))
+        int(A)
     return A
 
 

@@ -5,12 +5,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pickle
 
-# Dati test
-
-a=[13, 1, 5, 12, 45, 4, 2, 3, 2]
-b=[0]*len(a)
-m = max(a)
-
 # rende un numero binario
 def Binarize(array):
  for i in range(len(array)):
@@ -89,18 +83,7 @@ def CountingSortRadix(A, B, AIstr, max): #(S,D,B,max()) AIstr e' una matrice
           AI[(C[(A[j])])-1] = AIstr[j]
           C[(A[j])] = C[(A[j])] - 1
     #print("Ordine parziale: ",AI,"\n")
-
     return AI
-
-
-
-prova = [115, 187, 173, 739, 346, 6301, 515, 434, 73, 324]
-prova2 = [31274758, 31274757, 21047829, 78123209, 21979403]
-# TODO domanda al prof:
-# 1. Posso variare il passo, ma come lo studio analiticamnente senza i bit? devo considerasre che python usa 24 bit per intero
-# 2. Devo studiare l'occupazione di memoria? e se si, come?
-# 3. Vario il passo e faccio un confronto di quello o anche con altri algoritmi di ordinamento?
-# TODO prima cifra non puo essere uno zero
 
 # A vettore di numeri da ordinare, p passo, numberLen cifre per ogni numero
 def RadixSort(A,p,numberLen):
@@ -133,16 +116,36 @@ def RadixSort(A,p,numberLen):
         B = CountingSortRadix(S, D, B, int(max(S)))
     end = timer()
     print("Timer:",end-start)
-  #  print("Ordine finale: ",B)
+    #print("Ordine finale: ",B)
+    return end-start
 
+def TestRadix(File, step1, step2, step3, bits):
+    RadixSortGraph1=[]
+    RadixSortGraph2=[]
+    RadixSortGraph3=[]
+    pickle_in = open(File, "rb")
+    Set = pickle.load(pickle_in)
+    for j in range(1, len(Set)):
+        RadixSortGraph1.append(RadixSort(Set[j], step1, bits))
+        RadixSortGraph2.append(RadixSort(Set[j], step2, bits))
+        RadixSortGraph3.append(RadixSort(Set[j], step3, bits))
+    Set = []
+    ElementsNum = []
+    pickle_in = open(File, "rb")
+    Set = pickle.load(pickle_in)
+    for z in range(1, len(Set)):
+        A = Set[z]
+        ElementsNum.append(len(A))
+    plt.plot(ElementsNum, RadixSortGraph1)
+    plt.plot(ElementsNum, RadixSortGraph2)
+    plt.plot(ElementsNum, RadixSortGraph3)
+    plt.xlabel('Numero di elementi')
+    plt.ylabel('Tempo di esecuzione')
+    plt.title('Radix sort graph')
+    plt.legend([step1, step2, step3])
+    plt.show()
 
 ############################# ESECUZIONE #######################
-#
-# for j in range(0,2):
-#  ok = random_vect(10, 10)
-#  RadixSort(ok, 2, 4)
 
-Set=[]
-pickle_in = open("randomBigDataset.pickle", "rb")
-Set = pickle.load(pickle_in)
-RadixSort(Set[3], 4, 4)
+
+TestRadix("randomBigDataset.pickle", 1, 2, 4, 4)
