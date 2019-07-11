@@ -4,13 +4,15 @@ from timeit import default_timer as timer
 import numpy as np
 import matplotlib.pyplot as plt
 import pickle
+import statistics
+
+
 
 # rende un numero binario
 def Binarize(array):
  for i in range(len(array)):
    array[i] = int(bin(array[i])[2:])
  return array
-
 
 # genera vettore random di B numeri a bit bit
 def random_vect(B,bit):
@@ -119,16 +121,25 @@ def RadixSort(A,p,numberLen):
     #print("Ordine finale: ",B)
     return end-start
 
-def TestRadix(File, step1, step2, step3, bits):
+def TestRadix(File, step1, step2, step3, bits, repeat):
     RadixSortGraph1=[]
     RadixSortGraph2=[]
     RadixSortGraph3=[]
     pickle_in = open(File, "rb")
     Set = pickle.load(pickle_in)
+    Set1=Set.copy()
+    Set2=Set.copy()
     for j in range(1, len(Set)):
-        RadixSortGraph1.append(RadixSort(Set[j], step1, bits))
-        RadixSortGraph2.append(RadixSort(Set[j], step2, bits))
-        RadixSortGraph3.append(RadixSort(Set[j], step3, bits))
+        R1=[]
+        R2=[]
+        R3=[]
+        for k in range(0, repeat):
+            R1.append(RadixSort(Set[j], step1, bits))
+            R2.append(RadixSort(Set1[j], step2, bits))
+            R3.append(RadixSort(Set2[j], step3, bits))
+        RadixSortGraph1.append(statistics.mean(R1))
+        RadixSortGraph2.append(statistics.mean(R2))
+        RadixSortGraph3.append(statistics.mean(R3))
     Set = []
     ElementsNum = []
     pickle_in = open(File, "rb")
@@ -145,7 +156,81 @@ def TestRadix(File, step1, step2, step3, bits):
     plt.legend([step1, step2, step3])
     plt.show()
 
+#   Merge Sort   #
+
+def MergeSort(A, p, r):
+    if p < r :
+        q = (p+r) // 2
+        MergeSort(A, p, q)
+        MergeSort(A, q+1, r)
+        Merge(A, p, q, r)
+
+#   Merge   #
+
+def Merge(A,p,q,r):
+    n1=q-p+1
+    n2=r-q
+    L=[]
+    R=[]
+    for i in range (0,n1):
+        L.append(A[p+i])
+    for j in range (0,n2):
+        R.append(A[q+j+1])
+    L.append(math.inf)
+    R.append(math.inf)
+    i=0
+    j=0
+    for k in range (p,r +1):
+        if L[i] <= R[j]:
+            A[k] = L[i]
+            i = i + 1
+        else:
+            A[k] = R[j]
+            j = j + 1
+
+# Merge sort with mask that returns timer #
+
+def MergeSortMask(A, p, r):
+    print("################ INIZIO MERGE ###############")
+    start = timer()
+    MergeSort(A,p,r)
+    end = timer()
+    return end-start
+
+def TestRadixVsMerge(File, step1, bits, repeat):
+    RadixSortGraph1=[]
+    MergeSortGraph=[]
+    pickle_in = open(File, "rb")
+    Set = pickle.load(pickle_in)
+    Set1=Set.copy()
+    for j in range(1, len(Set)):
+        R1=[]
+        M1=[]
+        for k in range(0,repeat):
+            R1.append(RadixSort(Set[j], step1, bits))
+            M1.append(MergeSortMask(Set1[j], 0, len(Set1[j])-1))
+        RadixSortGraph1.append(statistics.mean(R1))
+        MergeSortGraph.append(statistics.mean(M1))
+    Set = []
+    ElementsNum = []
+    pickle_in = open(File, "rb")
+    Set = pickle.load(pickle_in)
+    for z in range(1, len(Set)):
+        A = Set[z]
+        ElementsNum.append(len(A))
+    plt.plot(ElementsNum, RadixSortGraph1)
+    plt.plot(ElementsNum, MergeSortGraph)
+    plt.xlabel('Numero di elementi')
+    plt.ylabel('Tempo di esecuzione')
+    plt.title('Radix sort graph')
+    plt.legend(['Radix Sort', 'Merge Sort'])
+    plt.show()
+
 ############################# ESECUZIONE #######################
 
+if __name__ == "__main__":
+    TestRadix("randomSmallDataset.pickle", 2, 4, 9, 32, 10)
+    #TestRadixVsMerge("randomBigDataset.pickle", 2, 32, 10)
 
-TestRadix("randomBigDataset.pickle", 1, 2, 4, 4)
+
+# TODO creare dataset da vari bit

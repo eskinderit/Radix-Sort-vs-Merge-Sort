@@ -1,12 +1,14 @@
 import random
 import math
 import pickle
+import sys
+
 
 def random_boolean_num(bits):
     A = str()
-    for j in range(0,bits):
+    for j in range(0, bits):
         A = A+(str(random.getrandbits(1)))
-        int(A)
+    A = int(A)
     return A
 
 
@@ -34,7 +36,7 @@ def multiple_random_vect(MultipleNumberVect, step1, multi):
     for i in range(multi+1):
         numbervect1.append(i*step1)
     for j in range(len(numbervect1)):
-        MultipleNumberVect.append(random_vect(numbervect1[j],4))
+        MultipleNumberVect.append(random_vect(numbervect1[j], 32))
     return MultipleNumberVect
 
 def multiple_incr_vect(MultipleNumberVect, step1, multi):
@@ -61,6 +63,7 @@ def multiple_decr_vect(MultipleNumberVect, step1, multi):
 ##################### RANDOM BIG DATA SET #######################
 SavedDataSet = []
 multiple_random_vect(SavedDataSet, 5000, 20)
+print(sys.getsizeof(SavedDataSet[1][1]))
 pickle_out = open("randomBigDataset.pickle", "wb")
 pickle.dump(SavedDataSet, pickle_out)
 pickle_out.close()
