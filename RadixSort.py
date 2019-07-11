@@ -50,7 +50,10 @@ def NumberToStringVect(A):
 def StringToNumberVect(A):
     B=[]
     for i in range(0, len(A)):
-            B.append(int(A[i]))
+            if A[i]=="":
+                B.append(0)
+            else:
+                B.append(int(A[i]))
     A = []
     A = B.copy()
     del B
@@ -130,6 +133,7 @@ def TestRadix(File, step1, step2, step3, bits, repeat):
     Set1=Set.copy()
     Set2=Set.copy()
     for j in range(1, len(Set)):
+        print("Test: ", File, "Passo: ", j, "/", len(Set))
         R1=[]
         R2=[]
         R3=[]
@@ -204,6 +208,7 @@ def TestRadixVsMerge(File, step1, bits, repeat):
     Set = pickle.load(pickle_in)
     Set1=Set.copy()
     for j in range(1, len(Set)):
+        print("Test: ",File,"Passo: ",j,"/",len(Set))
         R1=[]
         M1=[]
         for k in range(0,repeat):
@@ -229,7 +234,7 @@ def TestRadixVsMerge(File, step1, bits, repeat):
 ############################# ESECUZIONE #######################
 
 if __name__ == "__main__":
-    TestRadix("randomSmallDataset.pickle", 2, 4, 9, 32, 10)
+    TestRadix("randomSmallDataset.pickle", 2, 4, 9, 32, 1)
     #TestRadixVsMerge("randomBigDataset.pickle", 2, 32, 10)
 
 

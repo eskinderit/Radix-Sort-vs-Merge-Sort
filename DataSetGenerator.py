@@ -63,7 +63,6 @@ def multiple_decr_vect(MultipleNumberVect, step1, multi):
 ##################### RANDOM BIG DATA SET #######################
 SavedDataSet = []
 multiple_random_vect(SavedDataSet, 5000, 20)
-print(sys.getsizeof(SavedDataSet[1][1]))
 pickle_out = open("randomBigDataset.pickle", "wb")
 pickle.dump(SavedDataSet, pickle_out)
 pickle_out.close()
@@ -72,12 +71,11 @@ pickle_out.close()
 SavedDataSet = []
 multiple_random_vect(SavedDataSet, 40, 5)
 pickle_out = open("randomSmallDataset.pickle", "wb")
-print(SavedDataSet)
 pickle.dump(SavedDataSet, pickle_out)
 pickle_out.close()
 
 
-print("DATASET IS NOW REFRESHED")
+print("DATASET IS NOW REFRESHED!")
 
 
 
