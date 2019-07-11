@@ -234,7 +234,7 @@ def TestRadixVsMerge(File, step1, bits, repeat):
 ############################# ESECUZIONE #######################
 
 if __name__ == "__main__":
-    TestRadix("randomSmallDataset.pickle", 2, 4, 9, 32, 1)
+    TestRadix("randomSmallDataset.pickle", 3, 4, 9, 32, 1)
     #TestRadixVsMerge("randomBigDataset.pickle", 2, 32, 10)
 
 

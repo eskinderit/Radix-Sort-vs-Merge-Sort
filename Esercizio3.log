@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  10 JUL 2019 16:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.3.14)  12 JUL 2019 00:26
 entering extended mode
 **./Esercizio3.tex
 (Esercizio3.tex
 LaTeX2e <2017-04-15>
-Babel <3.17> and hyphenation patterns for 75 language(s) loaded.
+Babel <3.18> and hyphenation patterns for 75 language(s) loaded.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
@@ -22,10 +22,10 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \bibindent=\dimen102
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
-Package: babel 2018/01/24 3.17 The Babel package
+Package: babel 2018/02/14 3.18 The Babel package
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\switch.def"
-File: switch.def 2018/01/24 3.17 Babel switching mechanism
+File: switch.def 2018/02/14 3.18 Babel switching mechanism
 )
 *************************************
 * Local config file bblopts.cfg used
@@ -38,11 +38,7 @@ File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
 Language: italian 2019/01/05 v.1.4.01 Italian support for the babel system
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
-File: babel.def 2018/01/24 3.17 Babel common definitions
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\switch.def"
-File: switch.def 2018/01/24 3.17 Babel switching mechanism
-)
+File: babel.def 2018/02/14 3.18 Babel common definitions
 \babel@savecnt=\count87
 \U@D=\dimen103
 
@@ -108,8 +104,7 @@ Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 \TX@delta=\dimen112
 \TX@cols=\count93
 \TX@ftn=\toks16
-)
-No file Esercizio3.aux.
+) (Esercizio3.aux)
 \openout1 = `Esercizio3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
@@ -126,6 +121,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
 LaTeX Font Info:    ... okay on input line 19.
 LaTeX Info: Redefining \it@ocap on input line 19.
 LaTeX Info: Redefining \it@ccap on input line 19.
+
 
 File italian.ldf warning: 
 italian.ldf    With OT1 encoding guillemets are poorly faked
@@ -207,150 +203,41 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 21.
  [1
 
-{C:/Users/aleda/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-No file Esercizio3.toc.
+{C:/Users/Alessandro/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (Eserc
+izio3.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 9.
+)
 \tf@toc=\write3
 \openout3 = `Esercizio3.toc'.
 
+
 [1]
-Underfull \hbox (badness 1655) in paragraph at lines 39--39
-\OT1/cmr/m/n/10 ne at-te-so / ca-so
+Underfull \hbox (badness 4569) in paragraph at lines 39--39
+[]|\OT1/cmr/m/n/10 Tempo di ese-cu-zio-ne ca-so
  []
 
-[2]
-
-LaTeX Warning: Reference `fig:SmallInsMergeCresc' on page 3 undefined on input 
-line 46.
-
-
-! LaTeX Error: File `2' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.51 		\includegraphics[scale=0.3]{2}
-                                     
-I could not locate the file with any of these extensions:
-.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `1' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.58 		\includegraphics[scale=0.3]{1}
-                                     
-I could not locate the file with any of these extensions:
-.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[3]
-
-LaTeX Warning: Reference `fig:BigInsMergeDecr' on page 4 undefined on input lin
-e 66.
-
-
-! LaTeX Error: File `4' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.70 		\includegraphics[scale=0.3]{4}
-                                     
-I could not locate the file with any of these extensions:
-.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-Underfull \hbox (badness 4024) in paragraph at lines 71--71
-[]\OT1/cmr/m/n/10 Figura 3: Mer-ge Sort vs In-ser-tion Sort per po-chi in-put (
-or-di-na-ti
- []
-
-
-! LaTeX Error: File `3' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.77 		\includegraphics[scale=0.3]{3}
-                                     
-I could not locate the file with any of these extensions:
-.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-Underfull \hbox (badness 4193) in paragraph at lines 78--78
-[]\OT1/cmr/m/n/10 Figura 4: Mer-ge Sort vs In-ser-tion Sort per mol-ti in-put (
-or-di-na-ti
- []
-
-[4]
-
-! LaTeX Error: File `6' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.86 		\includegraphics[scale=0.3]{6}
-                                     
-I could not locate the file with any of these extensions:
-.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `5' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.93 		\includegraphics[scale=0.3]{5}
-                                     
-I could not locate the file with any of these extensions:
-.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[5] (Esercizio3.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+[2] [3] (Esercizio3.aux) ) 
 Here is how much of TeX's memory you used:
- 2511 strings out of 493303
- 34155 string characters out of 3138857
- 104089 words of memory out of 3000000
- 6017 multiletter control sequences out of 15000+200000
+ 2493 strings out of 493305
+ 34079 string characters out of 3138859
+ 103136 words of memory out of 3000000
+ 6014 multiletter control sequences out of 15000+200000
  8790 words of font info for 31 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,10n,25p,806b,193s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\aleda\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\sauter\dpi
-923\cmr13.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Esercizio3.pdf (6 pages, 91236 bytes).
+ 41i,9n,25p,806b,193s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\Alessandro\AppData\Local\MiKTeX\2.9\fonts\
+pk\ljfour\jknappen\sauter\dpi923\cmr13.pk><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Esercizio3.pdf (4 pages, 86115 bytes).
 PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
+ 57 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
