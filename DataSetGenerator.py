@@ -36,7 +36,7 @@ def multiple_random_vect(MultipleNumberVect, step1, multi):
     for i in range(multi+1):
         numbervect1.append(i*step1)
     for j in range(len(numbervect1)):
-        MultipleNumberVect.append(random_vect(numbervect1[j], 32))
+        MultipleNumberVect.append(random_vect(numbervect1[j], 8))
     return MultipleNumberVect
 
 def multiple_incr_vect(MultipleNumberVect, step1, multi):
@@ -69,7 +69,7 @@ pickle_out.close()
 
 ##################### RANDOM SMALL DATA SET #######################
 SavedDataSet = []
-multiple_random_vect(SavedDataSet, 40, 5)
+multiple_random_vect(SavedDataSet, 40, 10)
 pickle_out = open("randomSmallDataset.pickle", "wb")
 pickle.dump(SavedDataSet, pickle_out)
 pickle_out.close()

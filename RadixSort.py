@@ -195,7 +195,7 @@ def Merge(A,p,q,r):
 # Merge sort with mask that returns timer #
 
 def MergeSortMask(A, p, r):
-    print("################ INIZIO MERGE ###############")
+
     start = timer()
     MergeSort(A,p,r)
     end = timer()
@@ -212,10 +212,12 @@ def TestRadixVsMerge(File, step1, bits, repeat):
         R1=[]
         M1=[]
         for k in range(0,repeat):
-            R1.append(RadixSort(Set[j], step1, bits))
+            R1.append(bitwiseRadixSort(Set[j], bits))
             M1.append(MergeSortMask(Set1[j], 0, len(Set1[j])-1))
         RadixSortGraph1.append(statistics.mean(R1))
         MergeSortGraph.append(statistics.mean(M1))
+        print("tempo Radix: ", statistics.mean(R1))
+        print("tempo Merge: ",statistics.mean(M1))
     Set = []
     ElementsNum = []
     pickle_in = open(File, "rb")
@@ -231,11 +233,34 @@ def TestRadixVsMerge(File, step1, bits, repeat):
     plt.legend(['Radix Sort', 'Merge Sort'])
     plt.show()
 
+def bitwiseStableOrdering(A,i):
+    B=[]
+    C=[0, 0]
+    mask = 2**i
+    for j in range(len(A)):
+        B.append(0)
+        C[(A[j] & mask)//mask] += 1
+    C[1]+= C[0]
+    for j in range(len(A)-1, -1, -1):
+        figure = (A[j] & mask)//mask
+        C[figure] -= 1
+        B[C[figure]] = A[j]
+    return B
+
+
+def bitwiseRadixSort(A,d):
+    start = timer()
+    B = A
+    for i in range(d):
+        B = bitwiseStableOrdering(B, i)
+    end = timer()
+    return end-start
+
 ############################# ESECUZIONE #######################
 
 if __name__ == "__main__":
-    TestRadix("randomSmallDataset.pickle", 3, 4, 9, 32, 1)
-    #TestRadixVsMerge("randomBigDataset.pickle", 2, 32, 10)
+    #TestRadix("randomSmallDataset.pickle", 3, 4, 9, 32, 1)
+    TestRadixVsMerge("randomBigDataset.pickle", 8, 8, 1) #file,step.bits,repeats
 
 
 # TODO creare dataset da vari bit
