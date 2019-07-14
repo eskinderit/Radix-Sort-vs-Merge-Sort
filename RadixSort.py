@@ -225,12 +225,15 @@ def TestRadixVsMerge(File, step1, bits, repeat):
     for z in range(1, len(Set)):
         A = Set[z]
         ElementsNum.append(len(A))
-    plt.plot(ElementsNum, RadixSortGraph1)
-    plt.plot(ElementsNum, MergeSortGraph)
+    plt.plot(ElementsNum, RadixSortGraph1, '--bo')
+    plt.plot(ElementsNum, MergeSortGraph, '--ro')
     plt.xlabel('Numero di elementi')
     plt.ylabel('Tempo di esecuzione')
     plt.title('Radix sort graph')
     plt.legend(['Radix Sort', 'Merge Sort'])
+    plt.grid(True)
+    plt.xticks(ElementsNum)
+    plt.xticks(rotation=45)
     plt.show()
 
 def bitwiseStableOrdering(A,i):
